@@ -31,7 +31,7 @@ public class UpdateInformation extends JFrame implements ActionListener{
         l1.setBounds(30, 70, 100, 20);
         add(l1);
         
-        l11 = new JLabel();
+        l11 = new JLabel("Name Here");
         l11.setBounds(230, 70, 200, 20);
         add(l11);
         
@@ -39,7 +39,7 @@ public class UpdateInformation extends JFrame implements ActionListener{
         l2.setBounds(30, 110, 100, 20);
         add(l2);
         
-        l12 = new JLabel();
+        l12 = new JLabel("Meter_No Here");
         l12.setBounds(230, 110, 200, 20);
         add(l12);
         

@@ -15,10 +15,12 @@ public class MeterInfo extends JFrame implements ActionListener{
         setLocation(600,200);
         setSize(700,500);
         
+
         JPanel p = new JPanel();
         p.setLayout(null);
         p.setBackground(new Color(173,216,230));
         
+
         JLabel title = new JLabel("Meter Information");
         title.setBounds(180, 10, 200, 26);
         title.setFont(new Font("Tahoma", Font.PLAIN, 24));
@@ -53,6 +55,7 @@ public class MeterInfo extends JFrame implements ActionListener{
         
         l5 = new JLabel("Phase Code");
         l5.setBounds(100, 200, 100, 20);
+        
         c3 = new Choice();
         c3.add("011");
         c3.add("022");

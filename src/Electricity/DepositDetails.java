@@ -56,7 +56,7 @@ public class DepositDetails extends JFrame implements ActionListener{
             String str2 = "select * from customer";
             rs = c.s.executeQuery(str2);
             while(rs.next()){
-                c1.add(rs.getString("meter"));
+                c1.add(rs.getString("meter_no"));
             }
             
             

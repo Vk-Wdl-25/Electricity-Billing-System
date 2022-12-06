@@ -68,7 +68,7 @@ public class GenerateBill extends JFrame implements ActionListener{
             
             if(rs.next()){
                 t1.append("\n    Customer Name:"+rs.getString("name"));
-                t1.append("\n    Meter Number:  "+rs.getString("meter"));
+                t1.append("\n    Meter Number:  "+rs.getString("meter_no"));
                 t1.append("\n    Address:            "+rs.getString("address"));
                 t1.append("\n    State:                 "+rs.getString("state"));
                 t1.append("\n    City:                   "+rs.getString("city"));
