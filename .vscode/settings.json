@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\VIVEK\\Music\\mysql-connector-java-8.0.28.jar",
+        "c:\\Users\\VIVEK\\Music\\rs2xml.jar"
+    ]
+}
