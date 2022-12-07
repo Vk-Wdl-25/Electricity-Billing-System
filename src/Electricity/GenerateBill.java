@@ -14,7 +14,7 @@ public class GenerateBill extends JFrame implements ActionListener{
     String meter;
     GenerateBill(String meter){
         this.meter = meter;
-        setSize(500,900);
+        setSize(600,600);
         setLayout(new BorderLayout());
         
         p1 = new JPanel();
@@ -22,8 +22,8 @@ public class GenerateBill extends JFrame implements ActionListener{
         l1 = new JLabel("Generate Bill");
         
         l2 = new JLabel(meter);
+
         c2 = new Choice();
-        
         c2.add("January");
         c2.add("February");
         c2.add("March");
@@ -64,7 +64,7 @@ public class GenerateBill extends JFrame implements ActionListener{
             String month = c2.getSelectedItem();
             t1.setText("\tReliance Power Limited\nELECTRICITY BILL FOR THE MONTH OF "+month+" ,2021\n\n\n");
             
-            ResultSet rs = c.s.executeQuery("select * from customer where meter="+meter);
+            ResultSet rs = c.s.executeQuery("select * from customer where meter_no="+meter);
             
             if(rs.next()){
                 t1.append("\n    Customer Name:"+rs.getString("name"));
@@ -78,7 +78,7 @@ public class GenerateBill extends JFrame implements ActionListener{
                 t1.append("\n");
             }
             
-            rs = c.s.executeQuery("select * from meter_info where meter_number = " + meter);
+            rs = c.s.executeQuery("select * from meter_info where meter_no = " + meter);
             
             if(rs.next()){
                 t1.append("\n    Meter Location:"+rs.getString("meter_location"));
@@ -102,7 +102,7 @@ public class GenerateBill extends JFrame implements ActionListener{
                 
             }
             
-            rs = c.s.executeQuery("select * from bill where meter="+meter+" AND month = '"+c2.getSelectedItem()+"'");
+            rs = c.s.executeQuery("select * from bill where meter_no="+meter+" AND month = '"+c2.getSelectedItem()+"'");
             
             if(rs.next()){
                 t1.append("\n    Current Month :\t"+rs.getString("month"));

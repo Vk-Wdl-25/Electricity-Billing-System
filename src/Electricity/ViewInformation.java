@@ -13,7 +13,7 @@ import java.awt.event.*;
 public class ViewInformation extends JFrame implements ActionListener{
     JButton b1;
     ViewInformation(String meter){
-        setBounds(600,250, 850, 650);
+        setBounds(400,150, 850, 650);
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
         
@@ -26,7 +26,7 @@ public class ViewInformation extends JFrame implements ActionListener{
         l1.setBounds(70, 80, 100, 20);
         add(l1);
         
-        JLabel l11 = new JLabel();
+        JLabel l11 = new JLabel("Name Here");
         l11.setBounds(250, 80, 100, 20);
         add(l11);
         
@@ -54,6 +54,14 @@ public class ViewInformation extends JFrame implements ActionListener{
         l14.setBounds(250, 260, 100, 20);
         add(l14);
         
+        JLabel l4_1 = new JLabel("Username");
+        l4_1.setBounds(500, 260, 100, 20);
+        add(l4_1);
+
+        JLabel l1_4 = new JLabel("UserName Here");
+        l1_4.setBounds(650, 260, 100, 20);
+        add(l1_4);
+
         JLabel l5 = new JLabel("State");
         l5.setBounds(500, 80, 100, 20);
         add(l5);
@@ -80,7 +88,7 @@ public class ViewInformation extends JFrame implements ActionListener{
         
         try{
             Conn c = new Conn();
-            ResultSet rs = c.s.executeQuery("select * from customer where meter = '"+meter+"'");
+            ResultSet rs = c.s.executeQuery("select * from customer where meter_no = '"+meter+"'");
             while(rs.next()){
                 l11.setText(rs.getString(1));
                 l12.setText(rs.getString(2));
@@ -91,6 +99,11 @@ public class ViewInformation extends JFrame implements ActionListener{
                 l17.setText(rs.getString(7));
                 
             }
+            ResultSet rs1 = c.s.executeQuery("select * from login where meter_no = '"+meter+"'");;
+            while(rs1.next()){
+                l1_4.setText(rs1.getString(2));
+            }
+
         }catch(Exception e){}
         
         b1 = new JButton("Back");
@@ -113,6 +126,6 @@ public class ViewInformation extends JFrame implements ActionListener{
     }
     
     public static void main(String[] args){
-        new ViewInformation("").setVisible(true);
+        new ViewInformation("753931").setVisible(true);
     }
 }

@@ -89,15 +89,15 @@ public class PayBill extends JFrame implements ActionListener{
         
         try{
             Conn c = new Conn();
-            ResultSet rs = c.s.executeQuery("select * from customer where meter = '"+meter+"'");
+            ResultSet rs = c.s.executeQuery("select * from customer where meter_no  = '"+meter+"'");
             while(rs.next()){
-                l11.setText(rs.getString("meter"));
+                l11.setText(rs.getString("meter_no"));
                 l12.setText(rs.getString("name"));
             }
-            rs = c.s.executeQuery("select * from bill where meter = '"+meter+"' AND month = 'January' ");
+            rs = c.s.executeQuery("select * from bill where meter_no = '"+meter+"' AND month = 'January' ");
             while(rs.next()){
                 l13.setText(rs.getString("units"));
-                l14.setText(rs.getString("total_bill"));
+                l14.setText(rs.getString("totalbill"));
                 l15.setText(rs.getString("status"));
             }
         }catch(Exception e){}
@@ -107,10 +107,10 @@ public class PayBill extends JFrame implements ActionListener{
             public void itemStateChanged(ItemEvent ae){
                 try{
                     Conn c = new Conn();
-                    ResultSet rs = c.s.executeQuery("select * from bill where meter = '"+meter+"' AND month = '"+c1.getSelectedItem()+"'");
+                    ResultSet rs = c.s.executeQuery("select * from bill where meter_no = '"+meter+"' AND month = '"+c1.getSelectedItem()+"'");
                     while(rs.next()){
                         l13.setText(rs.getString("units"));
-                        l14.setText(rs.getString("total_bill"));
+                        l14.setText(rs.getString("totalbill"));
                         l15.setText(rs.getString("status"));
                     }
                 }catch(Exception e){}
@@ -146,7 +146,7 @@ public class PayBill extends JFrame implements ActionListener{
         if(ae.getSource() == b1){
             try{
                 Conn c = new Conn();
-                c.s.executeQuery("update bill status = 'Paid' where meter = '"+meter+"' AND month = '"+c1.getSelectedItem()+"'");
+                c.s.executeQuery("update bill status = 'Paid' where meter_no = '"+meter+"' AND month = '"+c1.getSelectedItem()+"'");
                 
             }catch(Exception e){}
             this.setVisible(false);
@@ -159,6 +159,6 @@ public class PayBill extends JFrame implements ActionListener{
     
        
     public static void main(String[] args){
-        new PayBill("").setVisible(true);
+        new PayBill("753931").setVisible(true);
     }
 }

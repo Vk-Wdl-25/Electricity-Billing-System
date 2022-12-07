@@ -23,7 +23,7 @@ public class Paytm extends JFrame implements ActionListener{
             j.setPage("https://paytm.com/electricity-bill-payment");
         }catch (Exception e) {
             j.setContentType("text/html");
-            j.setText("<html>Could not load</html>");
+            j.setText("<html>Could not load, Check your Connection..!</html>");
         } 
 
         JScrollPane scrollPane = new JScrollPane(j);     
@@ -31,7 +31,7 @@ public class Paytm extends JFrame implements ActionListener{
         getContentPane().add(scrollPane);
         setPreferredSize(new Dimension(800,600));
         setSize(800,800);
-        setLocation(250,120);
+        setLocation(250,20);
         setVisible(true);
     }
     
@@ -40,6 +40,6 @@ public class Paytm extends JFrame implements ActionListener{
         new PayBill(meter).setVisible(true);
     }
     public static void main(String[] args){
-        new Paytm("").setVisible(true);
+        new Paytm("753931").setVisible(true);
     }
 }

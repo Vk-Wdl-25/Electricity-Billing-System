@@ -41,7 +41,7 @@ public class CalculateBill extends JFrame implements ActionListener{
             Conn c = new Conn();
             ResultSet rs = c.s.executeQuery("select * from customer");
             while(rs.next()){
-                c1.add(rs.getString("meter"));
+                c1.add(rs.getString("meter_no"));
             }
         }catch(Exception e){}
         
@@ -55,7 +55,7 @@ public class CalculateBill extends JFrame implements ActionListener{
         
         try{
             Conn c = new Conn();
-            ResultSet rs = c.s.executeQuery("select * from customer where meter = '"+c1.getSelectedItem()+"'");
+            ResultSet rs = c.s.executeQuery("select * from customer where meter_no = '"+c1.getSelectedItem()+"'");
             while(rs.next()){
                 l11.setText(rs.getString("name"));
                 l12.setText(rs.getString("address"));
@@ -66,7 +66,7 @@ public class CalculateBill extends JFrame implements ActionListener{
             public void itemStateChanged(ItemEvent ae){
                 try{
                     Conn c = new Conn();
-                    ResultSet rs = c.s.executeQuery("select * from customer where meter = '"+c1.getSelectedItem()+"'");
+                    ResultSet rs = c.s.executeQuery("select * from customer where meter_no = '"+c1.getSelectedItem()+"'");
                     while(rs.next()){
                         l11.setText(rs.getString("name"));
                         l12.setText(rs.getString("address"));

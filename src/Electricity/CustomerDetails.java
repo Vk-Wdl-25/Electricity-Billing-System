@@ -3,7 +3,7 @@ package Electricity;
 // import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
+// import javax.swing.border.EmptyBorder;
 
 import java.sql.*;
 
@@ -18,7 +18,7 @@ public class CustomerDetails extends JFrame implements ActionListener{
     CustomerDetails(){
         super("Customer Details");
         setSize(1200,650);
-        setLocation(400,150);
+        setLocation(200,100);
         
         try{
             Conn c1  = new Conn();

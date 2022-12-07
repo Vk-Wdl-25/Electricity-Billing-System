@@ -18,7 +18,7 @@ public class DepositDetails extends JFrame implements ActionListener{
     DepositDetails(){
         super("Deposit Details");
         setSize(700,750);
-        setLocation(600,150);
+        setLocation(400,50);
         setLayout(null);
         getContentPane().setBackground(Color.WHITE);
         
@@ -101,7 +101,7 @@ public class DepositDetails extends JFrame implements ActionListener{
     }
     public void actionPerformed(ActionEvent ae){
         if(ae.getSource() == b1){
-            String str = "select * from bill where meter = '"+c1.getSelectedItem()+"' AND month = '"+c2.getSelectedItem()+"'";
+            String str = "select * from bill where meter_no = '"+c1.getSelectedItem()+"' AND month = '"+c2.getSelectedItem()+"'";
             try{
                 Conn c = new Conn();
                 ResultSet rs = c.s.executeQuery(str);

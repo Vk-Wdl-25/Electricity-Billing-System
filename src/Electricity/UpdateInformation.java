@@ -99,7 +99,7 @@ public class UpdateInformation extends JFrame implements ActionListener{
         
         try{
             Conn c = new Conn();
-            ResultSet rs = c.s.executeQuery("select * from customer where meter = '"+meter+"'");
+            ResultSet rs = c.s.executeQuery("select * from customer where meter_no = '"+meter+"'");
             while(rs.next()){
                 l11.setText(rs.getString(1));
                 l12.setText(rs.getString(2));
@@ -144,7 +144,7 @@ public class UpdateInformation extends JFrame implements ActionListener{
     }
     
     public static void main(String[] args){
-        new UpdateInformation("").setVisible(true);
+        new UpdateInformation("753931").setVisible(true);
         
     }
 }
