@@ -277,7 +277,7 @@ public class Project extends JFrame implements ActionListener{
             }catch(Exception e){ }
         }else if(msg.equals("Web Browser")){
             try{
-                Runtime.getRuntime().exec("C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
+                Runtime.getRuntime().exec("C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe");
             }catch(Exception e){ }
         }else if(msg.equals("Logout")){
             this.setVisible(false);

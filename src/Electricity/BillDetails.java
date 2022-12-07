@@ -23,7 +23,7 @@ public class BillDetails extends JFrame{
         
         try{
             Conn c  = new Conn();
-            String s1 = "select * from bill where meter = " + meter;
+            String s1 = "select * from bill where meter_no = '" + meter+"'";
             ResultSet rs  = c.s.executeQuery(s1);
             
             t1.setModel(DbUtils.resultSetToTableModel(rs));
