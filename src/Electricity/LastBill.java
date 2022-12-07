@@ -12,7 +12,7 @@ public class LastBill extends JFrame implements ActionListener{
     Choice c1;
     JPanel p1;
     LastBill(){
-        setSize(600,600);
+        setSize(600,800);
         setLayout(new BorderLayout());
         
         p1 = new JPanel();
@@ -21,16 +21,16 @@ public class LastBill extends JFrame implements ActionListener{
         
         c1 = new Choice();
 
-        c1.add("1001");
-        c1.add("1002");
-        c1.add("1003");
-        c1.add("1004");
-        c1.add("1005");
-        c1.add("1006");
-        c1.add("1007");
-        c1.add("1008");
-        c1.add("1009");
-        c1.add("1010");
+        try{
+            Conn c = new Conn();
+            ResultSet rs = c.s.executeQuery("select * from customer");
+            while(rs.next()){   
+                c1.add(rs.getString("meter_no"));
+            }
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
         
         t1 = new JTextArea(50,15);
@@ -48,17 +48,17 @@ public class LastBill extends JFrame implements ActionListener{
         
         b1.addActionListener(this);
         
-        setLocation(350,40);
+        setLocation(350,10);
     }
     public void actionPerformed(ActionEvent ae){
         try{
             Conn c = new Conn();
 
-            ResultSet rs = c.s.executeQuery("select * from emp where meter_number="+c1.getSelectedItem());
+            ResultSet rs = c.s.executeQuery("select * from customer where meter_no = '"+c1.getSelectedItem()+"'");
             
             if(rs.next()){
                 t1.append("\n    Customer Name:"+rs.getString("name"));
-                t1.append("\n    Meter Number:  "+rs.getString("meter_number"));
+                t1.append("\n    Meter Number:  "+rs.getString("meter_no"));
                 t1.append("\n    Address:            "+rs.getString("address"));
                 t1.append("\n    State:                 "+rs.getString("state"));
                 t1.append("\n    City:                   "+rs.getString("city"));
@@ -68,18 +68,14 @@ public class LastBill extends JFrame implements ActionListener{
                 t1.append("\n");
             }
 
-            t1.append("Details of the Last Bills\n\n\n");
+            t1.append("    Details of the Last Bills\n");
             
-            rs = c.s.executeQuery("select * from bill where meter_number="+c1.getSelectedItem());
+            rs = c.s.executeQuery("select * from bill where meter_no = '"+c1.getSelectedItem()+"'");
             
             while(rs.next()){
-                t1.append("       "+ rs.getString("month") + "           " +rs.getString("amount") + "\n");
+                t1.append("    "+ rs.getString("month") + "  -->  " +rs.getString("totalbill") + "\n");
             }
-            
-            
-            
-            
-            
+            t1.append("-------------------------------------------------------------");
             
         }catch(Exception e){
             e.printStackTrace();

@@ -9,6 +9,7 @@ import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.ResultSet;
 
 public class Signup extends JFrame implements ActionListener{
     JPanel p1;
@@ -29,58 +30,80 @@ public class Signup extends JFrame implements ActionListener{
         JLabel l1 = new JLabel("Username");
         l1.setForeground(Color.DARK_GRAY);
         l1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        l1.setBounds(100, 50, 100, 20);
+        l1.setBounds(100, 130, 100, 20);
         p1.add(l1);
         
         t1 = new JTextField();
-        t1.setBounds(260, 50, 150, 20);
+        t1.setBounds(260, 130, 150, 20);
         p1.add(t1);
         
         JLabel l2 = new JLabel("Name");
         l2.setForeground(Color.DARK_GRAY);
         l2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        l2.setBounds(100, 90, 100, 20);
+        l2.setBounds(100, 170, 100, 20);
         p1.add(l2);
         
         t2 = new JTextField();
-        t2.setBounds(260, 90, 150, 20);
+        t2.setBounds(260, 170, 150, 20);
         p1.add(t2);
         
         
         JLabel l3 = new JLabel("Password");
         l3.setForeground(Color.DARK_GRAY);
         l3.setFont(new Font("Tahoma", Font.BOLD, 14));
-        l3.setBounds(100, 130, 100, 20);
+        l3.setBounds(100, 210, 100, 20);
         p1.add(l3);
         
         t3 = new JTextField();
-        t3.setBounds(260, 130, 150, 20);
+        t3.setBounds(260, 210, 150, 20);
         p1.add(t3);
         
         
         JLabel l4 = new JLabel("Create Account As");
         l4.setForeground(Color.DARK_GRAY);
         l4.setFont(new Font("Tahoma", Font.BOLD, 14));
-        l4.setBounds(100, 170, 140, 20);
+        l4.setBounds(100, 50, 140, 20);
         p1.add(l4);
         
         
         JLabel l5 = new JLabel("Meter Number");
         l5.setForeground(Color.DARK_GRAY);
         l5.setFont(new Font("Tahoma", Font.BOLD, 14));
-        l5.setBounds(100, 210, 100, 20);
+        l5.setBounds(100, 90, 100, 20);
         l5.setVisible(false);
         p1.add(l5);
         
         t4 = new JTextField();
-        t4.setBounds(260, 210, 150, 20);
+        t4.setBounds(260, 90, 150, 20);
         t4.setVisible(false);
         p1.add(t4);
         
+        t4.addFocusListener(new FocusListener(){
+            @Override
+            public void focusGained(FocusEvent fe) {
+                
+            }
+            
+            @Override
+            public void focusLost(FocusEvent fe) {
+                try{
+                    Conn c = new Conn();
+                    ResultSet rs = c.s.executeQuery("select * from login Where meter_no = '"+t4.getText()+"'");
+                    while(rs.next()){
+                        t2.setText(rs.getString("name"));
+                    }
+                    
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+
+
         c1 = new Choice();
         c1.add("Admin");
         c1.add("Customer");
-        c1.setBounds(260, 170, 150, 20);
+        c1.setBounds(260, 50, 150, 20);
         p1.add(c1);
         
         c1.addItemListener(new ItemListener(){

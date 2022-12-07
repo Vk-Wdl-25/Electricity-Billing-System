@@ -151,21 +151,21 @@ public class CalculateBill extends JFrame implements ActionListener{
 
             int units_consumed = Integer.parseInt(units);
 
-            int total_bill = 0;
+            int totalbill = 0;
             try{
                 Conn c = new Conn();
                 ResultSet rs = c.s.executeQuery("select * from tax");
                 while(rs.next()){
-                    total_bill = units_consumed * Integer.parseInt(rs.getString("cost_per_unit")); // 120 * 7
-                    total_bill += Integer.parseInt(rs.getString("meter_rent"));
-                    total_bill += Integer.parseInt(rs.getString("service_charge"));
-                    total_bill += Integer.parseInt(rs.getString("service_tax"));
-                    total_bill += Integer.parseInt(rs.getString("swacch_bharat_cess"));
-                    total_bill += Integer.parseInt(rs.getString("fixed_tax"));
+                    totalbill = units_consumed * Integer.parseInt(rs.getString("cost_per_unit")); // 120 * 7
+                    totalbill += Integer.parseInt(rs.getString("meter_rent"));
+                    totalbill += Integer.parseInt(rs.getString("service_charge"));
+                    totalbill += Integer.parseInt(rs.getString("service_tax"));
+                    totalbill += Integer.parseInt(rs.getString("swacch_bharat_cess"));
+                    totalbill += Integer.parseInt(rs.getString("fixed_tax"));
                 }
             }catch(Exception e){}
 
-            String q = "insert into bill values('"+meter_no+"','"+month+"','"+units+"','"+total_bill+"', 'Not Paid')";
+            String q = "insert into bill values('"+meter_no+"','"+month+"','"+units+"','"+totalbill+"', 'Not Paid')";
 
             try{
                 Conn c1 = new Conn();

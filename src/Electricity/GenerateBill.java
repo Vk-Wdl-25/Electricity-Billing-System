@@ -49,7 +49,6 @@ public class GenerateBill extends JFrame implements ActionListener{
         p1.add(l2);
         p1.add(c2);
         add(p1,"North");
-        
         add(jsp,"Center");
         add(b1,"South");
         
@@ -64,28 +63,28 @@ public class GenerateBill extends JFrame implements ActionListener{
             String month = c2.getSelectedItem();
             t1.setText("\tReliance Power Limited\nELECTRICITY BILL FOR THE MONTH OF "+month+" ,2021\n\n\n");
             
-            ResultSet rs = c.s.executeQuery("select * from customer where meter_no="+meter);
+            ResultSet rs = c.s.executeQuery("select * from customer where meter_no = '"+meter+"'");
             
             if(rs.next()){
                 t1.append("\n    Customer Name:"+rs.getString("name"));
-                t1.append("\n    Meter Number:  "+rs.getString("meter_no"));
-                t1.append("\n    Address:            "+rs.getString("address"));
-                t1.append("\n    State:                 "+rs.getString("state"));
-                t1.append("\n    City:                   "+rs.getString("city"));
-                t1.append("\n    Email:                "+rs.getString("email"));
+                t1.append("\n    Meter Number: "+rs.getString("meter_no"));
+                t1.append("\n    Address:      "+rs.getString("address"));
+                t1.append("\n    State:        "+rs.getString("state"));
+                t1.append("\n    City:         "+rs.getString("city"));
+                t1.append("\n    Email:        "+rs.getString("email"));
                 t1.append("\n    Phone Number  "+rs.getString("phone"));
                 t1.append("\n-------------------------------------------------------------");
                 t1.append("\n");
             }
             
-            rs = c.s.executeQuery("select * from meter_info where meter_no = " + meter);
+            rs = c.s.executeQuery("select * from meter_info where meter_no = '" +meter+"'");
             
             if(rs.next()){
                 t1.append("\n    Meter Location:"+rs.getString("meter_location"));
-                t1.append("\n    Meter Type:      "+rs.getString("meter_type"));
+                t1.append("\n    Meter Type:    "+rs.getString("meter_type"));
                 t1.append("\n    Phase Code:    "+rs.getString("phase_code"));
-                t1.append("\n    Bill Type:         "+rs.getString("bill_type"));
-                t1.append("\n    Days:               "+rs.getString("days"));
+                t1.append("\n    Bill Type:     "+rs.getString("bill_type"));
+                t1.append("\n    Days:          "+rs.getString("days"));
                 t1.append("\n");
             }
             rs = c.s.executeQuery("select * from tax");
@@ -102,19 +101,15 @@ public class GenerateBill extends JFrame implements ActionListener{
                 
             }
             
-            rs = c.s.executeQuery("select * from bill where meter_no="+meter+" AND month = '"+c2.getSelectedItem()+"'");
+            rs = c.s.executeQuery("select * from bill where meter_no = '"+meter+"' AND month = '"+c2.getSelectedItem()+"'");
             
             if(rs.next()){
                 t1.append("\n    Current Month :\t"+rs.getString("month"));
                 t1.append("\n    Units Consumed:\t"+rs.getString("units"));
-                t1.append("\n    Total Charges :\t"+rs.getString("total_bill"));
+                t1.append("\n    Total Charges :\t"+rs.getString("totalbill"));
                 t1.append("\n---------------------------------------------------------------");
-                t1.append("\n    TOTAL PAYABLE :\t"+rs.getString("total_bill"));
+                t1.append("\n    TOTAL PAYABLE :\t"+rs.getString("totalbill"));
             }
-            
-            
-            
-            
             
             
         }catch(Exception e){
@@ -123,7 +118,7 @@ public class GenerateBill extends JFrame implements ActionListener{
     }
     
     public static void main(String[] args){
-        new GenerateBill("").setVisible(true);
+        new GenerateBill("753931").setVisible(true);
     }
 }
 
