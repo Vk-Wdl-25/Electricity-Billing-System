@@ -12,7 +12,7 @@ public class MeterInfo extends JFrame implements ActionListener{
     Choice c1, c2, c3,c4, c5;
     JButton b1,b2;
     MeterInfo(String meter){
-        setBounds(450,150, 700, 500);
+        setBounds(450,150, 710, 500);
         // setLocation(600,200);
         // setSize(700,500);
         

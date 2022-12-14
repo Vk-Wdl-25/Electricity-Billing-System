@@ -12,7 +12,7 @@ public class NewCustomer extends JFrame implements ActionListener{
     JTextField t1,t2,t3,t4,t5,t6,t7;
     JButton b1,b2;
     NewCustomer(){
-        setLocation(600,200);
+        setLocation(450,150);
         setSize(700,500);
         
         JPanel p = new JPanel();
