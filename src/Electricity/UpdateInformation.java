@@ -18,7 +18,7 @@ public class UpdateInformation extends JFrame implements ActionListener{
     UpdateInformation(String meter){
         this.meter = meter;
         
-        setBounds(500, 220, 1050, 450);
+        setBounds(300, 200, 1000, 450);
         setLayout(null);
         getContentPane().setBackground(Color.WHITE);
         
@@ -84,15 +84,11 @@ public class UpdateInformation extends JFrame implements ActionListener{
         add(t5);
         
         b1 = new JButton("Update");
-        b1.setBackground(Color.BLACK);
-        b1.setForeground(Color.WHITE);
         b1.setBounds(70, 360, 100, 25);
         b1.addActionListener(this);
         add(b1);
         
         b2 = new JButton("Back");
-        b2.setBackground(Color.BLACK);
-        b2.setForeground(Color.WHITE);
         b2.setBounds(230, 360, 100, 25);
         b2.addActionListener(this);
         add(b2);
@@ -113,7 +109,7 @@ public class UpdateInformation extends JFrame implements ActionListener{
         }catch(Exception e){}
         
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icon/update.jpg"));
-        Image i2  = i1.getImage().getScaledInstance(400, 300, Image.SCALE_DEFAULT);
+        Image i2  = i1.getImage().getScaledInstance(400, 400, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
         JLabel l8  = new JLabel(i3);
         l8.setBounds(550, 50, 400, 300);

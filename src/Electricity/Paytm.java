@@ -13,8 +13,6 @@ public class Paytm extends JFrame implements ActionListener{
         j.setEditable(false);   
         
         b1 = new JButton("Back");
-        b1.setBackground(Color.BLACK);
-        b1.setForeground(Color.WHITE);
         b1.setBounds(500, 20, 120, 25);
         b1.addActionListener(this);
         j.add(b1);

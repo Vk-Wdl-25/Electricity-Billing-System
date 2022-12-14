@@ -11,14 +11,14 @@ public class Project extends JFrame implements ActionListener{
         this.meter = meter;
         
         // Main Inherited Jframe Methods
-        setSize(1500,800);
+        setBounds(20,20,1500,800);
         setFont(new Font("Senserif",Font.BOLD,16));
         setLayout(new FlowLayout());
         setVisible(false);
         
         /* Adding background image */
         ImageIcon ic =  new ImageIcon(ClassLoader.getSystemResource("icon/elec.png"));
-        Image i3 = ic.getImage().getScaledInstance(1550, 800,Image.SCALE_DEFAULT);
+        Image i3 = ic.getImage().getScaledInstance(1500, 740,Image.SCALE_DEFAULT);
         ImageIcon icc3 = new ImageIcon(i3);
         JLabel l1 = new JLabel(icc3);
         add(l1);

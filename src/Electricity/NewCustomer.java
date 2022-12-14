@@ -91,9 +91,9 @@ public class NewCustomer extends JFrame implements ActionListener{
         Image i3 = ic1.getImage().getScaledInstance(150, 300,Image.SCALE_DEFAULT);
         ImageIcon ic2 = new ImageIcon(i3);
         l8 = new JLabel(ic2);
-        
-        
         add(l8,"West");
+
+        
         //for changing the color of the whole Frame
         getContentPane().setBackground(Color.WHITE);
         

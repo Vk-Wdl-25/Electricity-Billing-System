@@ -26,7 +26,7 @@ class fframe extends JFrame implements Runnable{
         super("Electricity Billing System");
         setLayout(new FlowLayout());
         ImageIcon c1 = new ImageIcon(ClassLoader.getSystemResource("icon/elect.jpg"));
-        Image i1 = c1.getImage().getScaledInstance(730, 550,Image.SCALE_DEFAULT);
+        Image i1 = c1.getImage().getScaledInstance(500, 500,Image.SCALE_DEFAULT);
         ImageIcon i2 = new ImageIcon(i1);
         
         

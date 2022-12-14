@@ -13,7 +13,7 @@ import java.awt.event.*;
 public class ViewInformation extends JFrame implements ActionListener{
     JButton b1;
     ViewInformation(String meter){
-        setBounds(400,150, 850, 650);
+        setBounds(400,100, 850, 650);
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
         

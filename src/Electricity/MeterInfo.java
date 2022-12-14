@@ -12,8 +12,9 @@ public class MeterInfo extends JFrame implements ActionListener{
     Choice c1, c2, c3,c4, c5;
     JButton b1,b2;
     MeterInfo(String meter){
-        setLocation(600,200);
-        setSize(700,500);
+        setBounds(450,150, 700, 500);
+        // setLocation(600,200);
+        // setSize(700,500);
         
 
         JPanel p = new JPanel();
@@ -111,13 +112,12 @@ public class MeterInfo extends JFrame implements ActionListener{
         
         add(p,"Center");
         
-        ImageIcon ic1 = new ImageIcon(ClassLoader.getSystemResource("icon/hicon1.jpg"));
-        Image i3 = ic1.getImage().getScaledInstance(150, 300,Image.SCALE_DEFAULT);
+        ImageIcon ic1 = new ImageIcon(ClassLoader.getSystemResource("icon/meter.png"));
+        Image i3 = ic1.getImage().getScaledInstance(200, 200,Image.SCALE_DEFAULT);
         ImageIcon ic2 = new ImageIcon(i3);
         l8 = new JLabel(ic2);
-        
-        
         add(l8,"West");
+
         //for changing the color of the whole Frame
         getContentPane().setBackground(Color.WHITE);
         
@@ -150,6 +150,6 @@ public class MeterInfo extends JFrame implements ActionListener{
     
     
     public static void main(String[] args){
-        new MeterInfo("").setVisible(true);
+        new MeterInfo("753931").setVisible(true);
     }
 }

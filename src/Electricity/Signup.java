@@ -17,8 +17,7 @@ public class Signup extends JFrame implements ActionListener{
     Choice c1;
     JButton b1, b2;
     Signup(){
-        setBounds(600, 250, 700, 400);
-        
+        setBounds(450, 250, 720, 380);
         p1 = new JPanel();
         p1.setBounds(30, 30, 650, 300);
         p1.setLayout( null);
@@ -121,21 +120,17 @@ public class Signup extends JFrame implements ActionListener{
         
         
         b1 = new JButton("Create");
-        b1.setBackground(Color.BLACK);
-        b1.setForeground(Color.WHITE);
         b1.setBounds(140, 290, 120, 30);
         b1.addActionListener(this);
         p1.add(b1);
         
         b2 = new JButton("Back");
-        b2.setBackground(Color.BLACK);
-        b2.setForeground(Color.WHITE);
         b2.setBounds(300, 290, 120, 30);
         b2.addActionListener(this);
         p1.add(b2);
         
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icon/signupImage.png"));
-        Image i2 = i1.getImage().getScaledInstance(250, 250, Image.SCALE_DEFAULT);
+        Image i2 = i1.getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
         JLabel l6 = new JLabel(i3);
         l6.setBounds(450, 30, 250, 250);
