@@ -141,7 +141,7 @@ public class CalculateBill extends JFrame implements ActionListener{
         
         getContentPane().setBackground(Color.WHITE);        
         setSize(750,500);
-        setLocation(550,220);
+        setLocation(450,150);
     }
     public void actionPerformed(ActionEvent ae){
         if(ae.getSource() == b1){
