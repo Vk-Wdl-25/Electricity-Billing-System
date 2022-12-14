@@ -54,7 +54,7 @@ public class GenerateBill extends JFrame implements ActionListener{
         
         b1.addActionListener(this);
         
-        setLocation(750,100);
+        setLocation(500,100);
     }
     public void actionPerformed(ActionEvent ae){
         try{
