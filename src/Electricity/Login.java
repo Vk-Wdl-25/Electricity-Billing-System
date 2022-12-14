@@ -68,14 +68,14 @@ public class Login extends JFrame implements ActionListener{
         Image i3 = ic3.getImage().getScaledInstance(250, 250,Image.SCALE_DEFAULT);
         ImageIcon icc3 = new ImageIcon(i3);
         l3 = new JLabel(icc3);
-        l3.setBounds(0, 0, 250, 250);
+        l3.setBounds(0, 5, 300, 250);
         add(l3);
         
         setLayout(new BorderLayout());
     
      
         setSize(640,300);
-        setLocation(600,300);
+        setLocation(450,250);
         setVisible(true);
         
 
