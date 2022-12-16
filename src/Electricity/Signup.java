@@ -174,16 +174,23 @@ public class Signup extends JFrame implements ActionListener{
             try{
                 Conn c = new Conn();
                 String str = null;
-                if(!(username.isEmpty() && password.isEmpty() && name.isEmpty() ) ){
+                if(!(username.isEmpty() || password.isEmpty()) ){
                     
-                    if(user.equals("Admin") && t5.getText() == "8822"){
+                    if(user.equals("Admin") && t5.getText().equals("8822")){
                         str = "insert into login values('"+meter+"', '"+username+"', '"+name+"', '"+password+"', '"+user+"')";
-                    }else{
+                        System.out.println("SuccesFully Added Admin Login");
+                    }else if(user.equals("Customer") && (!meter.isEmpty())){
                         str = "update login set username = '"+username+"', name = '"+name+"', password = '"+password+"', user = '"+user+"' where meter_no = '"+t4.getText()+"'";
+                        System.out.println("SuccesFully Added Customer Login");
                     }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Please Input All Informtion");
+                        this.setVisible(false);
+                    }
+                    
                 }
                 else{
-                    JOptionPane.showMessageDialog(null, "Please Input All Informtion");
+                    JOptionPane.showMessageDialog(null, "Invalid Information");
                     this.setVisible(false);
                 }
 
