@@ -85,8 +85,6 @@ public class PayBill extends JFrame implements ActionListener{
         l15.setForeground(Color.RED);
         add(l15);
         
-        
-        
         try{
             Conn c = new Conn();
             ResultSet rs = c.s.executeQuery("select * from customer where meter_no  = '"+meter+"'");
@@ -94,7 +92,7 @@ public class PayBill extends JFrame implements ActionListener{
                 l11.setText(rs.getString("meter_no"));
                 l12.setText(rs.getString("name"));
             }
-            rs = c.s.executeQuery("select * from bill where meter_no = '"+meter+"' AND month = 'January' ");
+            rs = c.s.executeQuery("select * from bill where meter_no = '"+meter+"' AND month = '"+c1.getSelectedItem()+"'");
             while(rs.next()){
                 l13.setText(rs.getString("units"));
                 l14.setText(rs.getString("totalbill"));
@@ -143,11 +141,12 @@ public class PayBill extends JFrame implements ActionListener{
         getContentPane().setBackground(Color.WHITE);        
     }
     public void actionPerformed(ActionEvent ae){
+        // b1 == pay and b2 == Back
         if(ae.getSource() == b1){
             try{
                 Conn c = new Conn();
-                c.s.executeQuery("update bill status = 'Paid' where meter_no = '"+meter+"' AND month = '"+c1.getSelectedItem()+"'");
-                
+                c.s.executeUpdate("Update bill set status = 'Paid' where meter_no = '"+meter+"' AND month = '"+c1.getSelectedItem()+"';");
+              
             }catch(Exception e){}
             this.setVisible(false);
             new Paytm(meter).setVisible(true);
@@ -159,6 +158,6 @@ public class PayBill extends JFrame implements ActionListener{
     
        
     public static void main(String[] args){
-        new PayBill("753931").setVisible(true);
+        new PayBill("934435").setVisible(true);
     }
 }

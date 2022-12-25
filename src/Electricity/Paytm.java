@@ -11,26 +11,24 @@ public class Paytm extends JFrame implements ActionListener{
         this.meter = meter;
         JEditorPane j = new JEditorPane();
         j.setEditable(false);   
+        setSize(800,800);
+        setLocation(400,20);
+        setVisible(true);
         
-        b1 = new JButton("Back");
-        b1.setBounds(500, 20, 120, 25);
-        b1.addActionListener(this);
-        j.add(b1);
-
         try {
-            j.setPage("https://paytm.com/electricity-bill-payment");
+            j.setPage("https://paytm.com/online-payments");
         }catch (Exception e) {
             j.setContentType("text/html");
             j.setText("<html>Could not load, Check your Connection..!</html>");
         } 
 
-        JScrollPane scrollPane = new JScrollPane(j);     
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        getContentPane().add(scrollPane);
-        setPreferredSize(new Dimension(800,600));
-        setSize(800,800);
-        setLocation(250,20);
-        setVisible(true);
+        b1 = new JButton("Back");
+        b1.setBounds(650, 20, 120, 25);
+        b1.addActionListener(this);
+        j.add(b1);
+
+        JScrollPane scrollPane = new JScrollPane(j);
+        add(scrollPane);
     }
     
     public void actionPerformed(ActionEvent ae){
@@ -38,6 +36,6 @@ public class Paytm extends JFrame implements ActionListener{
         new PayBill(meter).setVisible(true);
     }
     public static void main(String[] args){
-        new Paytm("753931").setVisible(true);
+        new Paytm("").setVisible(true);
     }
 }
