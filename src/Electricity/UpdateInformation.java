@@ -16,15 +16,15 @@ public class UpdateInformation extends JFrame implements ActionListener{
     JButton b1, b2;
     String meter;
     UpdateInformation(String meter){
+        super("Update Information Page");
         this.meter = meter;
-        
         setBounds(300, 200, 1000, 450);
         setLayout(null);
         getContentPane().setBackground(Color.WHITE);
         
         JLabel title = new JLabel("UPDATE CUSTOMER INFORMATION");
-        title.setBounds(110, 0, 400, 30);
-        title.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        title.setBounds(110, 10, 400, 30);
+        title.setFont(new Font("Tahoma", Font.BOLD, 20));
         add(title);
         
         JLabel l1 = new JLabel("Name");

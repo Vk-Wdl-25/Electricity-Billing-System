@@ -1,6 +1,6 @@
 package Electricity;
 
-import java.awt.*;
+// import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -8,6 +8,7 @@ public class Paytm extends JFrame implements ActionListener{
     String meter;
     JButton b1;
     Paytm(String meter){
+        super("Paytm Page");
         this.meter = meter;
         JEditorPane j = new JEditorPane();
         j.setEditable(false);   

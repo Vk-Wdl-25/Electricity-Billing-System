@@ -13,6 +13,7 @@ import java.awt.event.*;
 public class ViewInformation extends JFrame implements ActionListener{
     JButton b1;
     ViewInformation(String meter){
+        super("View Information Page");
         setBounds(400,100, 850, 650);
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
@@ -126,6 +127,6 @@ public class ViewInformation extends JFrame implements ActionListener{
     }
     
     public static void main(String[] args){
-        new ViewInformation("753931").setVisible(true);
+        new ViewInformation("158836").setVisible(true);
     }
 }

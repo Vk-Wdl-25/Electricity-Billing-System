@@ -17,6 +17,7 @@ public class Signup extends JFrame implements ActionListener{
     Choice c1;
     JButton b1, b2;
     Signup(){
+        super("Signup Page");
         setBounds(450, 250, 720, 380);
         p1 = new JPanel();
         p1.setBounds(30, 30, 650, 300);

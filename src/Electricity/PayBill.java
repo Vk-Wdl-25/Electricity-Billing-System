@@ -13,6 +13,7 @@ public class PayBill extends JFrame implements ActionListener{
     JButton b1,b2;
     String meter;
     PayBill(String meter){
+        super("Pay Bill Page");
         this.meter = meter;
         setLayout(null);
         

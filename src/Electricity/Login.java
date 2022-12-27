@@ -14,6 +14,7 @@ public class Login extends JFrame implements ActionListener{
     Choice c1;
     Login(){
         super("Login Page");
+        
         setLayout(null);
         getContentPane().setBackground(Color.WHITE);
         
